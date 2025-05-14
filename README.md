@@ -53,3 +53,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Role-Based Architecture
+- **Buyers**: Browse products, add to cart, purchase.
+- **Sellers**: Create/edit product listings, view sales.
+- **Implementation**:
+  - Store role (‘buyer’ or ‘seller’) in PostgreSQL `users` table.
+  - FastAPI verifies role using JWT for restricted endpoints.
+  - Next.js frontend shows role-specific UI (e.g., Seller dashboard).
+
+  ## Module 2: Designing the Authentication System
+- **Database**: PostgreSQL with `users` table (`schema.sql`).
+- **Role-Based Architecture**: Buyer/Seller roles stored in `role` column, used for access control.
+- **API Endpoints**: Planned in `backend/api_design.md` (`/register`, `/login`, `/me`, `/logout`) using FastAPI.
